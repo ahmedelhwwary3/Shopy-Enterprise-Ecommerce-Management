@@ -1,31 +1,29 @@
-🏬 Enterprise E-Commerce Management System
+# 🏬 Enterprise E-Commerce Management System
 
-A full-featured Enterprise-Level E-Commerce Management System built using ASP.NET MVC with a strong focus on clean architecture, scalability, and professional backend engineering practices.
+A production-oriented **Enterprise-Level E-Commerce Management System** built with ASP.NET MVC.
 
-This project reflects real-world architectural thinking, advanced database handling, and hybrid data access strategies used in production systems.
+This project focuses on backend architecture discipline, scalable system design, and hybrid data access strategies that reflect real-world enterprise practices.
 
-🚀 Tech Stack
+---
 
-ASP.NET MVC
+## 🚀 Tech Stack
 
-Entity Framework Core (ORM)
+- ASP.NET MVC
+- Entity Framework Core (ORM)
+- Dapper (Micro-ORM)
+- SQL Server
+- ASP.NET Identity
+- LINQ (Dynamic Querying)
+- AJAX + Partial Views
+- Bootstrap
 
-Dapper (Micro-ORM)
+---
 
-SQL Server
+# 🧠 Architecture Overview
 
-ASP.NET Identity
+The system follows a clean layered architecture:
 
-LINQ (Dynamic Querying)
-
-AJAX + Partial Views
-
-Bootstrap
-
-🧠 Architecture Overview
-
-The system follows a clean layered structure:
-
+```
 Presentation (MVC)
     ↓
 Service Layer
@@ -33,144 +31,118 @@ Service Layer
 Repository Layer
     ↓
 Data Access (EF Core + Dapper + SQL)
-Patterns & Principles Applied
+```
 
-Repository Pattern (Generic + Custom)
+## Implemented Patterns
 
-Unit of Work
+- Repository Pattern (Generic + Custom)
+- Unit of Work
+- Service Layer Pattern
+- Dependency Injection
+- DTOs & ViewModels Separation
+- Soft Delete with Global Query Filters
+- Explicit Transactions
+- Role-Based Authorization (RBAC)
+- SOLID Principles
 
-Service Layer Pattern
+---
 
-Dependency Injection
+# 🏗 Engineering Discipline
 
-DTOs & ViewModels separation
+## Clean Separation of Responsibilities
 
-Soft Delete with Global Query Filters
+- Controllers handle HTTP concerns only.
+- Business logic exists exclusively inside Services.
+- Repositories are responsible only for data access.
+- No direct DbContext usage inside controllers.
+- No business logic leakage across layers.
 
-Explicit Transactions
+## Maintainability & Code Quality
 
-Role-Based Authorization (RBAC)
+- Clear and descriptive naming conventions.
+- Strong typing using enums (no magic numbers).
+- Fluent API configurations for relationships and constraints.
+- Structured folder organization.
+- Async/await implemented across services and repositories.
+- Explicit transaction handling when coordinating Identity and domain operations.
 
-SOLID Principles
+---
 
-🏗 Engineering Highlights
-✅ Clean Separation of Concerns
+# 🗄 Hybrid Data Access Strategy
 
-Controllers handle HTTP only.
+This project intentionally combines multiple data access approaches.
 
-Business logic exists exclusively in Services.
-
-Repositories handle data access only.
-
-No DbContext usage inside controllers.
-
-No business logic leakage across layers.
-
-✅ Strong Architectural Discipline
-
-Clear naming conventions.
-
-Structured folder organization.
-
-Enums instead of magic numbers.
-
-Fluent API configurations.
-
-Explicit transaction handling when coordinating Identity and domain logic.
-
-Async/await across repositories and services.
-
-✅ Hybrid Data Access Strategy
-
-This project intentionally combines multiple data access approaches:
-
-1️⃣ Entity Framework Core
+## 1️⃣ Entity Framework Core (ORM)
 
 Used for:
+- Standard CRUD operations
+- Change tracking
+- Navigation properties & relationships
+- Fluent API configurations
+- Owned entities
+- Inheritance mapping
 
-Standard CRUD
-
-Change tracking
-
-Relationships
-
-Fluent API configurations
-
-Owned entities
-
-Inheritance mapping
-
-2️⃣ Dapper (Micro-ORM)
+## 2️⃣ Dapper (Micro-ORM)
 
 Used for:
+- Performance-sensitive queries
+- Complex read projections
+- Optimized reporting scenarios
 
-Performance-sensitive queries
+## 3️⃣ Advanced SQL
 
-Complex read projections
+Used when full control or performance tuning is required:
 
-Optimized reporting queries
+- CTE & Recursive CTE
+- Views
+- Functions
+- Triggers
+- Temp tables
+- Explicit SQL transactions
 
-3️⃣ Advanced SQL Usage
+This hybrid approach reflects realistic enterprise systems where abstraction and control must coexist.
 
-CTE & Recursive CTE
+---
 
-Views
+# 📄 Pagination & Filtering System
 
-Functions
+- Fully implemented Server-Side Pagination
+- State-based `currentPage` management
+- Dynamic filtering using LINQ
+- Dropdown changes auto-reset page to 1
+- Reusable pagination rendering logic
+- Consistent Bootstrap small action buttons (Edit / Manage)
 
-Triggers
+---
 
-Temp tables
+# 🔐 Authentication & Authorization
 
-Explicit SQL transactions
+- ASP.NET Identity integration
+- Role-based access control
+- Business-layer permission validation
+- Manual customer registration by authorized users
+- Transaction coordination between Identity and business data
 
-This reflects real enterprise systems where performance, flexibility, and control all matter.
+---
 
-📄 Pagination & Filtering System
+# 🛒 Order Lifecycle Design
 
-Full Server-Side Pagination
+Structured and modeled to reflect real systems:
 
-State-based currentPage logic
+1. Cart creation
+2. Checkout process
+3. Courier assignment
+4. Delivery confirmation
+5. Returns handling
+6. Status tracking via enums
 
-Dynamic filtering
+Soft delete is implemented using global query filters to preserve data history.
 
-Dropdown changes auto-reset page to 1
+---
 
-Clean reusable pagination rendering
+# 📂 Simplified Project Structure
 
-Consistent UI action buttons (Bootstrap small buttons)
-
-🔐 Authentication & Authorization
-
-ASP.NET Identity integration
-
-Role-based authorization
-
-Business-layer permission validation
-
-Manual customer registration by authorized users
-
-Coordinated transactions between Identity and business data
-
-🛒 Order Lifecycle System
-
-Structured workflow:
-
-Cart
-
-Checkout
-
-Courier Assignment
-
-Delivery Confirmation
-
-Returns Handling
-
-Status tracking using enums
-
-Soft delete is applied with global query filters to preserve historical integrity.
-
-📂 Project Structure (Simplified)
+```
 /Controllers
 /Services
 /Repositories
@@ -180,61 +152,61 @@ Soft delete is applied with global query filters to preserve historical integrit
 /ViewModels
 /Helpers
 /Enums
+```
 
 Clear separation between:
+- Domain models
+- View models
+- Business logic
+- Data access layer
 
-Domain models
+---
 
-View models
+# 🎨 Frontend Note
 
-Data access
+The primary focus of this project is backend architecture and system design.
 
-Business logic
+Some UI components were implemented with AI assistance to accelerate layout and styling.  
+However:
 
-🎨 Frontend Note
+- All generated code was reviewed and fully understood.
+- No code was blindly integrated.
+- Backend architecture and system behavior were designed and implemented manually.
 
-The frontend implementation focuses primarily on functionality and structure.
+Frontend refinement and advanced UI structuring remain part of the continuous learning roadmap.
 
-Some UI parts were developed with AI assistance to speed up layout and styling.
+This reflects a pragmatic engineering approach: prioritizing architecture while steadily improving UI craftsmanship.
 
-However, all frontend code was reviewed and fully understood.
+---
 
-The current focus of the project is backend architecture.
+# 🛠 How To Run The Project
 
-Frontend refinement and advanced UI structuring are part of the continuous learning roadmap.
+1. Ensure SQL Server is running.
+2. Update the connection string if necessary.
+3. Run the following command:
 
-This reflects a pragmatic engineering approach: prioritizing system architecture while continuously improving UI craftsmanship.
-
-🛠 How To Run The Project
-
-Ensure SQL Server is running.
-
-Update the connection string if needed.
-
-Run:
-
+```
 Update-Database
+```
 
-Then run the project normally.
+4. Start the application.
 
-The database will be created using EF Core migrations.
+The database will be created automatically via EF Core migrations.
 
-🎯 What This Project Demonstrates
+---
 
-Enterprise-level backend thinking.
+# 🎯 What This Project Demonstrates
 
-Clean architecture discipline.
+- Enterprise-level backend thinking
+- Clean architecture discipline
+- Hybrid ORM + Micro-ORM usage
+- Advanced SQL knowledge
+- Performance-aware design decisions
+- Structured order lifecycle modeling
+- Maintainable and scalable codebase design
 
-Hybrid ORM + Micro-ORM usage.
+---
 
-Advanced SQL knowledge.
-
-Performance-aware design decisions.
-
-Structured order lifecycle modeling.
-
-Proper layering and maintainability focus.
-
-📌 Purpose
+# 📌 Purpose
 
 This project serves as a professional backend architecture reference and portfolio project, demonstrating advanced ASP.NET MVC system design and database engineering practices.
